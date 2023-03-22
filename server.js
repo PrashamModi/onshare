@@ -7,14 +7,13 @@ app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.json());
-app.use(express.static('../frontend'))
 
 const connectDB = require("./config/db");
 connectDB();
 
 //cors
 const corsOption = {
-    origin : process.env.ALLOWED_CLIENTS.split(',') || "http://localhost:3000"
+    origin : process.env.ALLOWED_CLIENTS.split(',')
 }
 app.use(cors(corsOption));
 
